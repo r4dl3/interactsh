@@ -440,7 +440,7 @@ func (h *HTTPServer) corsMiddleware(next http.Handler) http.Handler {
 		if req.Method == http.MethodOptions {
 			w.Header().Set("Access-Control-Allow-Origin", h.options.OriginURL)
 			w.Header().Set("Access-Control-Allow-Credentials", "true")
-			w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+			w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization, x-requested-with")
 			w.WriteHeader(http.StatusNoContent)
 			return
 		}
